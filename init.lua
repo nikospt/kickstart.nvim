@@ -407,6 +407,10 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
+
+-- require 'custom.colors'
+require 'custom.options'
+local lsp_external = require 'custom.lsp'
 local servers = {
   -- clangd = {},
   -- gopls = {},
@@ -421,6 +425,9 @@ local servers = {
     },
   },
 }
+for k, v in pairs(lsp_external.servers) do
+  servers[k] = v
+end
 
 -- Setup neovim lua configuration
 require('neodev').setup()
