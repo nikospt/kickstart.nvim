@@ -20,4 +20,5 @@ return {
 	change_vim_settings(),
 	nmap('<leader>ch', clear_highlights, '[C]lear [H]ightlights'),
 	nmap('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat'),
+	nmap('<leader>ss', vim.lsp.buf.document_highlight, '[S]cope [S]ymbols')
 }
