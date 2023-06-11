@@ -14,7 +14,6 @@ return {
 		},
 	},
 	'ellisonleao/glow.nvim',
-	-- { import = colors.packages },
-	{ import = 'custom.colors' },
+	{ import = 'custom.themes' },
 
 }
