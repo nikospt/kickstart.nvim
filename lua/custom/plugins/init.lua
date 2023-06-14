@@ -17,7 +17,6 @@ return {
  --    "neovim/nvim-lspconfig",
  --    opts = {
  --      servers = {
- --        texlab = {},
  --        ltex = {},
  --      },
  --    },
