@@ -412,6 +412,7 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 
 require 'custom.options'
+require 'custom.keybinds'
 require 'custom.dap'
 local lsp_external = require 'custom.lsp'
 local servers = {
