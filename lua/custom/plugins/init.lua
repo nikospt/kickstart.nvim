@@ -100,5 +100,6 @@ return {
 			})
 		end,
 	},
-	{ import = 'custom.themes' },
+		'stevearc/dressing.nvim',
+		{ import = 'custom.themes' },
 }
