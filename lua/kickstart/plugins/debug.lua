@@ -53,7 +53,8 @@ return {
     vim.keymap.set('n', '<leader>B', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end)
-    vim.keymap.set('n', '<F8>', dapui.setup)
+    vim.keymap.set('n', '<F7>', dapui.setup)
+    vim.keymap.set("n", "<F8>", dapui.toggle)
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
@@ -77,7 +78,6 @@ return {
     --   },
     -- }
     -- toggle to see last session result. Without this ,you can't see session output in case of unhandled exception.
-    vim.keymap.set("n", "<F7>", dapui.toggle)
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
