@@ -5,6 +5,11 @@ local function prequire(m)
   if not ok then return nil, err end
   return err
 end
+local function pdofile(m)
+  local ok, err = pcall(dofile, m)
+  if not ok then return nil, err end
+  return err
+end
 
 local function load(modulename)
    local errmsg = ""
@@ -55,8 +60,9 @@ if localconfigs then
 end
 
 -- TODO somehow get the same effect but with prequire
+-- as far as I know it would look something like package.path 'vim fn things;' .. package.path
 local fpath = vim.fn.expand("%:p:h") ..  "/.dap-configs.lua"
-local localconfigs = dofile(fpath)
+local localconfigs = pdofile(fpath)
 if localconfigs then
    for _, v in pairs(localconfigs.python) do
       table.insert(dap.python, v)
