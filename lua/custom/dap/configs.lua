@@ -45,9 +45,18 @@ dap.python = {
 
 }
 
--- TODO: allow it to find any file with name .?.dap.lua
 -- TODO: load in configs for arbitrary dap (not just python)
-local localconfigs = prequire(".dap-configs")
+local fpath = ".dap-configs"
+local localconfigs = prequire(fpath)
+if localconfigs then
+   for _, v in pairs(localconfigs.python) do
+      table.insert(dap.python, v)
+   end
+end
+
+-- TODO somehow get the same effect but with prequire
+local fpath = vim.fn.expand("%:p:h") ..  "/.dap-configs.lua"
+local localconfigs = dofile(fpath)
 if localconfigs then
    for _, v in pairs(localconfigs.python) do
       table.insert(dap.python, v)
