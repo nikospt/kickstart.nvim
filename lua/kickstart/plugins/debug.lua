@@ -56,6 +56,7 @@ return {
     vim.keymap.set('n', '<F7>', dapui.setup)
     vim.keymap.set("n", "<F8>", dapui.toggle)
     vim.keymap.set("n", "<F12>", dap.restart)
+    vim.keymap.set("n", "<F11>", dapui.eval)
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
@@ -79,6 +80,76 @@ return {
     --   },
     -- }
     -- toggle to see last session result. Without this ,you can't see session output in case of unhandled exception.
+
+  dapui.setup
+  {
+    controls = {
+      element = "repl",
+      enabled = true,
+      icons = {
+        disconnect = "",
+        pause = "",
+        play = "",
+        run_last = "",
+        step_back = "",
+        step_into = "",
+        step_out = "",
+        step_over = "",
+        terminate = ""
+      }
+    },
+    element_mappings = {},
+    expand_lines = true,
+    floating = {
+      border = "single",
+      mappings = {
+        close = { "q", "<Esc>" }
+      }
+    },
+    force_buffers = true,
+    icons = {
+      collapsed = "",
+      current_frame = "",
+      expanded = ""
+    },
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+          }, {
+            id = "breakpoints",
+            size = 0.25
+          }, {
+            id = "stacks",
+            size = 0.25
+          }, {
+            id = "watches",
+            size = 0.25
+          } },
+        position = "left",
+        size = 40
+      }, {
+        elements = { {
+            id = "repl",
+            size = 1.0
+          },
+          },
+        position = "bottom",
+        size = 15
+      } },
+    mappings = {
+      edit = "e",
+      expand = { "<CR>", "<2-LeftMouse>" },
+      open = "o",
+      remove = "d",
+      repl = "r",
+      toggle = "t"
+    },
+    render = {
+      indent = 1,
+      max_value_lines = 100
+    }
+  }
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
