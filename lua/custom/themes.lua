@@ -5,6 +5,7 @@ return {
   "nyoom-engineering/nyoom.nvim",
   "jacoborus/tender.vim",
   "rebelot/kanagawa.nvim",
+  "tanvirtin/monokai.nvim",
   { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
   vim.keymap.set('n', '<leader>ct', require('telescope.builtin').colorscheme, { desc = '[C]hange [T]heme' })
 }
