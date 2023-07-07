@@ -100,6 +100,13 @@ return {
 			})
 		end,
 	},
-		'stevearc/dressing.nvim',
-		{ import = 'custom.themes' },
+	'stevearc/dressing.nvim',
+	{
+		'danymat/neogen',
+		config = function()
+			require("config.neogen").setup()
+		end,
+	},
+
+	{ import = 'custom.themes' },
 }
