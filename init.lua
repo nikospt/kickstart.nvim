@@ -137,7 +137,7 @@ require('lazy').setup({
   require 'kickstart.plugins.theme',
 
   -- Status line related configs go here
-  require 'kickstart.plugins.statusline',
+  -- require 'kickstart.plugins.statusline',
 
   {
     -- Add indentation guides even on blank lines
