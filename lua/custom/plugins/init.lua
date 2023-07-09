@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<CR>', {
 	noremap = true
 }) -- OR setup with some options
 return {
+	-- Used for grep search in telescope
 	'BurntSushi/ripgrep',
 	'sharkdp/fd',
 	{
@@ -16,6 +17,7 @@ return {
 			require('custom.config.vimtex').setup(opts)
 		end,
 	},
+	-- Markdown viewer
 	'ellisonleao/glow.nvim',
 	'L3MON4D3/LuaSnip',
 	{
@@ -42,6 +44,13 @@ return {
 		end,
 	},
 	'f-person/git-blame.nvim',
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+		config = function()
+			require("custom.config.lualine").setup()
+		end,
+	},
 
 	{ import = 'custom.themes' },
 }
