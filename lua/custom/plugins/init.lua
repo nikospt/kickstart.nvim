@@ -17,6 +17,7 @@ return {
 		end,
 	},
 	'ellisonleao/glow.nvim',
+	'L3MON4D3/LuaSnip',
 	{
 		"ThePrimeagen/refactoring.nvim",
 		dependencies = {
