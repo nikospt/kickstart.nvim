@@ -41,6 +41,7 @@ return {
 			require("custom.config.neogen").setup()
 		end,
 	},
+	'f-person/git-blame.nvim',
 
 	{ import = 'custom.themes' },
 }
