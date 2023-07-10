@@ -17,6 +17,12 @@ return {
 			require('custom.config.vimtex').setup(opts)
 		end,
 	},
+	{
+		'nvim-tree/nvim-web-devicons',
+		config = function()
+			require("custom.config.nvim-web-devicons").setup()
+		end
+	},
 	-- Markdown viewer
 	'ellisonleao/glow.nvim',
 	'L3MON4D3/LuaSnip',
@@ -46,7 +52,6 @@ return {
 	'f-person/git-blame.nvim',
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
 		config = function()
 			require("custom.config.lualine").setup()
 		end,
