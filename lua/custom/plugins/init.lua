@@ -56,6 +56,19 @@ return {
 			require("custom.config.lualine").setup()
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require('todo-comments').setup()
+		end,
+	},
+	{
+		'rcarriga/cmp-dap',
+		config = function()
+			require("custom.config.cmp-dap").setup()
+		end,
 
+	},
 	{ import = 'custom.themes' },
 }
