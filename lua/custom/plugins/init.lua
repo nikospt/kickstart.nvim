@@ -56,6 +56,7 @@ return {
 			require("custom.config.lualine").setup()
 		end,
 	},
+	"AndrewRadev/linediff.vim",
 
 	{ import = 'custom.themes' },
 }
