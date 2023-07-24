@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>dd', require('neogen').generate)
 
 return {
 	nmap('<leader>ch', clear_highlights, '[C]lear [H]ightlights'),
-	nmap('<leader>cf', vim.lsp.buf.format, 'LSP: [C]ode [F]ormat'),
+	nmap('<leader>cf', function() vim.lsp.buf.format({timeout_ms= 10000}) end, 'LSP: [C]ode [F]ormat'),
 	nmap('<leader>ss', vim.lsp.buf.document_highlight, 'LSP [S]cope [S]ymbols'),
 	nmap('<leader>ts', require('telescope.builtin').treesitter, '[T]ree [S]itter'),
 	nmap('gtp', require('gitsigns').prev_hunk, 'Go to Previous Hunk'),
