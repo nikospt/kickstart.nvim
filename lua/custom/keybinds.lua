@@ -16,4 +16,5 @@ return {
 	nmap('<leader>ts', require('telescope.builtin').treesitter, '[T]ree [S]itter'),
 	nmap('gtp', require('gitsigns').prev_hunk, 'Go to Previous Hunk'),
 	nmap('gtn', require('gitsigns').next_hunk, 'Go to Next Hunk'),
+	nmap('<leader>tds', function() vim.cmd('SymbolsOutline') end, '[T]reeview of [D]ocument [S]ymbols')
 }

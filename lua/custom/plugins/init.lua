@@ -68,7 +68,12 @@ return {
 		config = function()
 			require("custom.config.cmp-dap").setup()
 		end,
-
+	},
+	{
+		'simrat39/symbols-outline.nvim',
+		config = function()
+			require("custom.config.symbols-outline").setup()
+		end,
 	},
 	{ import = 'custom.themes' },
 }
