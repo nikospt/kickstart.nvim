@@ -57,6 +57,11 @@ return {
 		end,
 	},
 	"AndrewRadev/linediff.vim",
-
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("custom.config.treesitter-context").setup()
+		end,
+	},
 	{ import = 'custom.themes' },
 }
