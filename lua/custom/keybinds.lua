@@ -19,5 +19,10 @@ return {
 	nmap('<leader>it', function()
 		require("telescope").load_extension('find_template')
 		vim.cmd({ cmd = 'Telescope', args = { 'find_template', 'type=insert' } })
-	end, '[I]nsert [T]emplate')
+	end, '[I]nsert [T]emplate'),
+
+
+	-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+	vim.keymap.set('n', 'zR', require('ufo').openAllFolds),
+	vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 }

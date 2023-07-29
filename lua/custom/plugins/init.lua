@@ -118,5 +118,13 @@ return {
 			}
 		end
 	},
+	{
+		'kevinhwang91/nvim-ufo',
+		dependencies = 'kevinhwang91/promise-async',
+		config = function()
+			require('custom.config.ufo').setup()
+		end
+	},
+
 	{ import = 'custom.themes' },
 }
