@@ -118,6 +118,5 @@ return {
 			}
 		end
 	},
-
 	{ import = 'custom.themes' },
 }
