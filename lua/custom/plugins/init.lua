@@ -7,8 +7,8 @@ vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<CR>', {
 }) -- OR setup with some options
 
 local function script_path()
-   local str = debug.getinfo(2, "S").source:sub(2)
-   return str:match("(.*/)")
+	local str = debug.getinfo(2, "S").source:sub(2)
+	return str:match("(.*/)")
 end
 return {
 	-- Used for grep search in telescope
@@ -93,10 +93,20 @@ return {
 			require("custom.config.cmp-dap").setup()
 		end,
 	},
-	{'glepnir/template.nvim', cmd = {'Template','TemProject'}, config = function()
-    require('template').setup({
-		temp_dir=script_path() .. '../templates',
-    })
-end},
+	{
+		'glepnir/template.nvim',
+		cmd = { 'Template', 'TemProject' },
+		config = function()
+			require('template').setup({
+				temp_dir = script_path() .. '../templates',
+			})
+		end
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require('custom.config.lsp_signature').setup()
+		end
+	},
 	{ import = 'custom.themes' },
 }
