@@ -5,6 +5,11 @@
 vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<CR>', {
 	noremap = true
 }) -- OR setup with some options
+
+local function script_path()
+   local str = debug.getinfo(2, "S").source:sub(2)
+   return str:match("(.*/)")
+end
 return {
 	-- Used for grep search in telescope
 	'BurntSushi/ripgrep',
@@ -88,5 +93,10 @@ return {
 			require("custom.config.cmp-dap").setup()
 		end,
 	},
+	{'glepnir/template.nvim', cmd = {'Template','TemProject'}, config = function()
+    require('template').setup({
+		temp_dir=script_path() .. '../templates',
+    })
+end},
 	{ import = 'custom.themes' },
 }

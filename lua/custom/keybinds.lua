@@ -15,5 +15,9 @@ return {
 	nmap('<leader>cf', function() vim.lsp.buf.format({ timeout_ms = 10000 }) end, 'LSP: [C]ode [F]ormat'),
 	nmap('<leader>ss', vim.lsp.buf.document_highlight, 'LSP [S]cope [S]ymbols'),
 	nmap('<leader>ts', require('telescope.builtin').treesitter, '[T]ree [S]itter'),
-	nmap('<leader>tds', function() vim.cmd('SymbolsOutline') end, '[T]reeview of [D]ocument [S]ymbols')
+	nmap('<leader>tds', function() vim.cmd('SymbolsOutline') end, '[T]reeview of [D]ocument [S]ymbols'),
+	nmap('<leader>it', function()
+		require("telescope").load_extension('find_template')
+		vim.cmd({ cmd = 'Telescope', args = { 'find_template', 'type=insert' } })
+	end, '[I]nsert [T]emplate')
 }
