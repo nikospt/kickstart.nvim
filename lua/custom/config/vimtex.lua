@@ -10,7 +10,7 @@ function M.setup(opts)
 	-- Live compilation
 	vim.g.vimtex_compiler_latexmk = {
 		build_dir = ".out",
-		options = {
+		options = { -- "-lualatex"
 			"-shell-escape",
 			"-verbose",
 			"-file-line-error",

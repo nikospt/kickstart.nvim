@@ -9,7 +9,7 @@ lsp.servers = {
           maxLineLength = 120
         },
         jedi_completion = {
-          cache_for = {"pandas","numpy","tensorflow","matplotlib"}
+          cache_for = { "pandas", "numpy", "tensorflow", "matplotlib" }
         }
       }
     }
@@ -23,37 +23,37 @@ local function prequire(m)
 end
 
 local function load(modulename)
-   local errmsg = ""
-   for path in string.gmatch(package.path, "([^;]+)") do
-      local filename = string.gsub(path, "%?", modulename)
-      local file = io.open(filename, "rb")
-      if file then
-         -- Compile and return the module
-         return assert(loadstring(assert(file:read("*a")), filename))
-      end
-      errmsg = errmsg .. "\n\tno file '" .. filename .. "' (checked with custom loader)"
-   end
-   return errmsg
+  local errmsg = ""
+  for path in string.gmatch(package.path, "([^;]+)") do
+    local filename = string.gsub(path, "%?", modulename)
+    local file = io.open(filename, "rb")
+    if file then
+      -- Compile and return the module
+      return assert(loadstring(assert(file:read("*a")), filename))
+    end
+    errmsg = errmsg .. "\n\tno file '" .. filename .. "' (checked with custom loader)"
+  end
+  return errmsg
 end
 -- table.insert(package.loaders, 2, load) -- this will run before the standard loader, if you want it to
 -- run after you can call table.insert(package.loaders, load)
 table.insert(package.loaders, load)
 
 local function tableMerge(t1, t2)
-    for k,v in pairs(t2) do
-        if type(v) == "table" then
-            if type(t1[k] or false) == "table" then
-                tableMerge(t1[k] or {}, t2[k] or {})
-            else
-                -- t1[k] = v
-                t1[#t1+1] = v
-            end
-        else
-            -- t1[k] = v
-            t1[#t1+1] = v
-        end
+  for k, v in pairs(t2) do
+    if type(v) == "table" then
+      if type(t1[k] or false) == "table" then
+        tableMerge(t1[k] or {}, t2[k] or {})
+      else
+        -- t1[k] = v
+        t1[#t1 + 1] = v
+      end
+    else
+      -- t1[k] = v
+      t1[#t1 + 1] = v
     end
-    return t1
+  end
+  return t1
 end
 
 local fpath = ".nvim-lsp-configs"

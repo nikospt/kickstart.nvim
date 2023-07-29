@@ -57,6 +57,9 @@ return {
 		end,
 	},
 	"AndrewRadev/linediff.vim",
+	"hrsh7th/cmp-path",
+	"nat-418/tcl.nvim",
+	"mfussenegger/nvim-lint",
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
