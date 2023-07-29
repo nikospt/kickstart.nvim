@@ -58,9 +58,31 @@ return {
 	},
 	"AndrewRadev/linediff.vim",
 	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require('todo-comments').setup()
+		end,
+	},
+	-- Show context of current block in top line (ex. the function definition at the top even if its a long function where the defintiion would be off the screen
+	{
 		"nvim-treesitter/nvim-treesitter-context",
 		config = function()
 			require("custom.config.treesitter-context").setup()
+		end,
+	},
+	-- Show outline of symboles
+	{
+		'simrat39/symbols-outline.nvim',
+		config = function()
+			require("custom.config.symbols-outline").setup()
+		end,
+	},
+	-- Allow for completion in debugger console
+	{
+		'rcarriga/cmp-dap',
+		config = function()
+			require("custom.config.cmp-dap").setup()
 		end,
 	},
 	{ import = 'custom.themes' },
