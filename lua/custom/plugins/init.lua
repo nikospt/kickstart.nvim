@@ -108,5 +108,16 @@ return {
 			require('custom.config.lsp_signature').setup()
 		end
 	},
+	{
+		"barreiroleo/ltex_extra.nvim",
+		ft = { "markdown", "tex" },
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			require("ltex_extra").setup {
+				path = "/media/nikos/Data/tools/languagetool/dictionaries"
+			}
+		end
+	},
+
 	{ import = 'custom.themes' },
 }
