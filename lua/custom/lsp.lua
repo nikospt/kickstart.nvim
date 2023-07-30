@@ -1,9 +1,16 @@
 local lsp = {}
 local utils = {}
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
 utils.concat_fileLines = function(file)
     local dictionary = {}
-    for line in io.lines(file) do
-        table.insert(dictionary, line)
+    if file_exists(file) then
+        for line in io.lines(file) do
+            table.insert(dictionary, line)
+        end
     end
     return dictionary
 end
@@ -25,17 +32,29 @@ lsp.servers = {
     ltex = {
         ltex = {
             additionalRules = {
-                languageModel = '/media/nikos/Data/tools/languagetool/ngram',
-                word2VecModel = '/media/nikos/Data/tools/languagetool/word2vec/en',
+                enablePickyRules = true,
+                languageModel = '/media/nikos/Data/tools/languagetool/ngram/',
+                -- I dont know if word2Vec or neuralnetwork are working, but ngram is
+                word2VecModel = '/media/nikos/Data/tools/languagetool/word2vec/',
+                neuralNetworkModel = '/media/nikos/Data/tools/languagetool/word2vec/neuralnetwork/',
                 motherTongue = 'en-US'
             },
+            -- completion_enabled = true,
             enabledRules = {
-                ["en-US"] = { "MASS_AGREEMENT" },
+                ["en-US"] = { "ENGLISH_WORD_REPEAT_BEGINNING_RULE", "MASS_AGREEMENT",
+                    "EN_REPEATEDWORDS", "CREATIVE_WRITING", "READABILITY_RULE_DIFFICULT", "READABILITY_RULE_SIMPLE",
+                    "EN_PLAIN_ENGLISH_REPLACE", "DUE_TO_THE_FACT", "BECAUSE", "HAVE_THE_ABILITY_TO", "EN_CONSISTENT_APOS",
+                    "ENGLISH_WORD_REPEAT_RULE", "EN_COMPOUNDS", "REP_PASSIVE_VOICE", "EN_SIMPLE_REPLACE", "ENGLISH_WRONG_WORD_IN_CONTEXT",
+                    "TOO_OFTEN_USED_NOUN_EN", "TOO_OFTEN_USED_VERB_EN", "E_PRIME_STRICT" },
             },
             configurationTarget = {
                 dictionary = "userExternalFile",
             },
-            dictionary = { ["en-US"] = utils.concat_fileLines("/media/nikos/Data/tools/languagetool/dictionaries/english.txt") },
+            dictionary = {
+                ["en-US"] = utils.concat_fileLines("/media/nikos/Data/tools/languagetool/dictionaries/ltex.dictionary.en-US.txt") },
+            statusBarItem = true,
+            checkFrequency = "save",
+            trace = {["server"] = "verbose"}
         }
     },
 }
