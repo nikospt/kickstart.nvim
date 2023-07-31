@@ -125,6 +125,6 @@ return {
 			require('custom.config.ufo').setup()
 		end
 	},
-
+	"preservim/tagbar",
 	{ import = 'custom.themes' },
 }
