@@ -126,5 +126,6 @@ return {
 		end
 	},
 	"preservim/tagbar",
+	"pocco81/true-zen.nvim",
 	{ import = 'custom.themes' },
 }

@@ -7,7 +7,8 @@ local clear_highlights = function()
 	vim.cmd('noh')
 end
 
-vim.keymap.set('n', '<leader>dd', require('neogen').generate)
+local truezen = require('true-zen')
+local keymap = vim.keymap
 
 return {
 	nmap('<leader>ch', clear_highlights, '[C]lear [H]ightlights'),
@@ -21,7 +22,29 @@ return {
 		vim.cmd({ cmd = 'Telescope', args = { 'find_template', 'type=insert' } })
 	end, '[I]nsert [T]emplate'),
 
+
+	vim.keymap.set('n', '<leader>dd', require('neogen').generate),
+
 	vim.keymap.set('n', '<F8>', function() vim.cmd('TagbarToggle') end),
+
+	-- true zen keybinds
+	-- vim.keymap.set('n', '<leader>tza', require('true-zen').ataraxis, { desc = '[T]rue-[Z]en ataraxis' }),
+	-- vim.keymap.set('n', '<leader>tzm', require('true-zen').minimalist, { desc = '[T]rue-[Z]en minimalist' }),
+	-- vim.keymap.set('n', '<leader>tzn', function() vim.cmd('TZNarrow') end, { desc = '[T]rue-[Z]en minimalist' }),
+
+	keymap.set('n', '<leader>tzn', function()
+		local first = 0
+		local last = vim.api.nvim_buf_line_count(0)
+		truezen.narrow(first, last)
+	end, { noremap = true }),
+	keymap.set('v', '<leader>tzn', function()
+		local first = vim.fn.line('v')
+		local last = vim.fn.line('.')
+		truezen.narrow(first, last)
+	end, { noremap = true }),
+	keymap.set('n', '<leader>tzf', truezen.focus, { noremap = true }),
+	keymap.set('n', '<leader>tzm', truezen.minimalist, { noremap = true }),
+	keymap.set('n', '<leader>tza', truezen.ataraxis, { noremap = true }),
 
 	-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 	vim.keymap.set('n', 'zR', require('ufo').openAllFolds),
