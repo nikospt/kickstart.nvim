@@ -127,5 +127,17 @@ return {
 	},
 	"preservim/tagbar",
 	"pocco81/true-zen.nvim",
+	{
+		"LiadOz/nvim-dap-repl-highlights",
+		config = function()
+			require('custom.config.nvim-dap-repl-highlights').setup()
+		end
+	},
+	{
+		"nvim-telescope/telescope-dap.nvim",
+		config = function()
+			require('custom.config.telescope-dap').setup()
+		end
+	},
 	{ import = 'custom.themes' },
 }

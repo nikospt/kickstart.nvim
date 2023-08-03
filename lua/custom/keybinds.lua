@@ -53,6 +53,13 @@ return {
 		require("todo-comments").jump_prev()
 	end, { desc = "Previous todo comment" }),
 
+	vim.keymap.set("n", "<leader>df", function ()
+		vim.cmd({cmd='Telescope', args = {'dap', 'frames'} })
+	end, { desc = 'Telescope [D]ap [F]rames'}),
+	vim.keymap.set("n", "<leader>db", function ()
+		vim.cmd({cmd='Telescope', args = {'dap', 'list_breakpoints'} })
+	end, { desc = 'Telescope [D]ap [B]reakpoints'}),
+
 	-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 	vim.keymap.set('n', 'zR', require('ufo').openAllFolds),
 	vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
