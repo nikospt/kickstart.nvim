@@ -260,6 +260,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('telescope').setup {
   defaults = {
     dynamic_preview_title = true,
+    -- initial_mode = "normal",
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -289,6 +290,8 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>ci', require('telescope.builtin').lsp_incoming_calls, {desc = '[C]alls [I]ncoming' })
+vim.keymap.set('n', '<leader>co', require('telescope.builtin').lsp_outgoing_calls, {desc = '[C]alls [O]utgoing' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
