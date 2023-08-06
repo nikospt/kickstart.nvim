@@ -8,6 +8,8 @@ return {
   "sonph/onehalf",
   "NLKNguyen/papercolor-theme",
   "nyoom-engineering/oxocarbon.nvim",
+  "sainnhe/edge",
+  "nvimdev/zephyr-nvim",
   { "rose-pine/neovim",           name = "rose-pine" },
   { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
 
