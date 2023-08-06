@@ -139,5 +139,6 @@ return {
 			require('custom.config.telescope-dap').setup()
 		end
 	},
+	"nvim-treesitter/playground",
 	{ import = 'custom.themes' },
 }
