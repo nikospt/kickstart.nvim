@@ -24,7 +24,8 @@ return {
 
 
 	vim.keymap.set('n', '<leader>dd', require('neogen').generate),
-	vim.keymap.set('n', '<F8>', function() vim.cmd('TagbarToggle') end),
+	-- TODO: This conflicts with dap and I am not sure what it does
+	-- vim.keymap.set('n', '<F8>', function() vim.cmd('TagbarToggle') end),
 
 	-- true zen keybinds
 	-- vim.keymap.set('n', '<leader>tza', require('true-zen').ataraxis, { desc = '[T]rue-[Z]en ataraxis' }),
@@ -62,5 +63,8 @@ return {
 
 	-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 	vim.keymap.set('n', 'zR', require('ufo').openAllFolds),
-	vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+	vim.keymap.set('n', 'zM', require('ufo').closeAllFolds),
+
+	-- Ergonomic windows navigation (basically replace <ctrl>w with <leader>n (Nemonic for [N]avigate windows)
+	vim.keymap.set('n', '<leader>n', '<C-w>', {desc = '[N]avigate window control'}),
 }

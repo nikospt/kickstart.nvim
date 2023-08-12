@@ -55,8 +55,9 @@ return {
     end)
     vim.keymap.set('n', '<F7>', dapui.setup)
     vim.keymap.set("n", "<F8>", dapui.toggle)
-    vim.keymap.set("n", "<F12>", dap.restart)
+    vim.keymap.set('n', "<F10>", dap.stop)
     vim.keymap.set("n", "<F11>", dapui.eval)
+    vim.keymap.set("n", "<F12>", dap.restart)
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
