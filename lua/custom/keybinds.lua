@@ -9,6 +9,7 @@ end
 
 local truezen = require('true-zen')
 local keymap = vim.keymap
+local ls = require("luasnip")
 
 return {
 	nmap('<leader>ch', clear_highlights, '[C]lear [H]ightlights'),
@@ -67,4 +68,15 @@ return {
 
 	-- Ergonomic windows navigation (basically replace <ctrl>w with <leader>n (Nemonic for [N]avigate windows)
 	vim.keymap.set('n', '<leader>n', '<C-w>', {desc = '[N]avigate window control'}),
+
+	-- I am not sure if these interfere with anything, but they are needed. Can be mapped later.
+	vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true}),
+	vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true}),
+	vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true}),
+
+	vim.keymap.set({"i", "s"}, "<C-E>", function()
+		if ls.choice_active() then
+			ls.change_choice(1)
+		end
+	end, {silent = true})
 }
