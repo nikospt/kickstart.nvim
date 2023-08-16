@@ -66,8 +66,8 @@ return {
 	vim.keymap.set('n', 'zR', require('ufo').openAllFolds),
 	vim.keymap.set('n', 'zM', require('ufo').closeAllFolds),
 
-	-- Ergonomic windows navigation (basically replace <ctrl>w with <leader>n (Nemonic for [N]avigate windows)
-	vim.keymap.set('n', '<leader>n', '<C-w>', {desc = '[N]avigate window control'}),
+	-- Ergonomic windows navigation (basically alias <ctrl>w with <leader>w)
+	vim.keymap.set('n', '<leader>w', '<C-w>', {desc = 'Ctrl-[w] alias'}),
 
 	-- Explicit jump keybinds for snippets
 	vim.keymap.set({'i', 's'}, '<C-j>', function() ls.jump(1) end, {silent = true}),
