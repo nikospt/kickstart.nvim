@@ -11,7 +11,7 @@ ls.add_snippets(nil, {
 			dscr = "Import numpy and matplotlib",
 		}, {
 			-- Separate by commas for new line
-			text("import numpy", "import matplotlib")
+			text({"import numpy", "import matplotlib"}),
 		}),
 	},
 })
