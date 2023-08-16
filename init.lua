@@ -421,6 +421,7 @@ end
 require 'custom.options'
 require 'custom.keybinds'
 require 'custom.dap'
+require 'custom.snippets'
 local lsp_external = require 'custom.lsp'
 local servers = {
   -- clangd = {},

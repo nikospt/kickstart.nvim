@@ -7,9 +7,9 @@ local clear_highlights = function()
 	vim.cmd('noh')
 end
 
-local ls = require("luasnip")
 local truezen = require('true-zen')
 local keymap = vim.keymap
+local ls = require("luasnip")
 
 return {
 	nmap('<leader>ch', clear_highlights, '[C]lear [H]ightlights'),
@@ -71,5 +71,10 @@ return {
 
 	-- Explicit jump keybinds for snippets
 	vim.keymap.set({'i', 's'}, '<C-j>', function() ls.jump(1) end, {silent = true}),
-	vim.keymap.set({'i', 's'}, '<C-k>', function() ls.jump(-1) end, {silent = true})
+	vim.keymap.set({'i', 's'}, '<C-k>', function() ls.jump(-1) end, {silent = true}),
+	vim.keymap.set({"i", "s"}, "<C-e>", function()
+		if ls.choice_active() then
+			ls.change_choice(1)
+		end
+	end, {silent = true})
 }
