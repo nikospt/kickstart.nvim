@@ -7,6 +7,7 @@ local clear_highlights = function()
 	vim.cmd('noh')
 end
 
+local ls = require("luasnip")
 local truezen = require('true-zen')
 local keymap = vim.keymap
 
@@ -67,4 +68,8 @@ return {
 
 	-- Ergonomic windows navigation (basically replace <ctrl>w with <leader>n (Nemonic for [N]avigate windows)
 	vim.keymap.set('n', '<leader>n', '<C-w>', {desc = '[N]avigate window control'}),
+
+	-- Explicit jump keybinds for snippets
+	vim.keymap.set({'i', 's'}, '<C-j>', function() ls.jump(1) end, {silent = true}),
+	vim.keymap.set({'i', 's'}, '<C-k>', function() ls.jump(-1) end, {silent = true})
 }
