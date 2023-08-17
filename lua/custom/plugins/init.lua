@@ -140,5 +140,6 @@ return {
 		end
 	},
 	"nvim-treesitter/playground",
+	"p00f/nvim-ts-rainbow",
 	{ import = 'custom.themes' },
 }
