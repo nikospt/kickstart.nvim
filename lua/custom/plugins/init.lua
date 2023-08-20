@@ -139,5 +139,6 @@ return {
 		end
 	},
 	"nvim-treesitter/playground",
+	"b0o/schemastore.nvim",
 	{ import = 'custom.themes' },
 }
