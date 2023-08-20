@@ -77,5 +77,8 @@ return {
 		if ls.choice_active() then
 			ls.change_choice(1)
 		end
-	end, {silent = true})
+	end, {silent = true}),
+
+	vim.keymap.set('n', "<leader>th", function() vim.cmd({ cmd = 'TSHighlightCapturesUnderCursor' }) end),
+	vim.keymap.set('n', "<leader>tn", function() vim.cmd({ cmd = 'TSNodeUnderCursor' }) end),
 }
