@@ -69,12 +69,11 @@ return {
 	-- Ergonomic windows navigation (basically replace <ctrl>w with <leader>n (Nemonic for [N]avigate windows)
 	vim.keymap.set('n', '<leader>n', '<C-w>', {desc = '[N]avigate window control'}),
 
-	-- I am not sure if these interfere with anything, but they are needed. Can be mapped later.
-	vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true}),
-	vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true}),
-	vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true}),
-
-	vim.keymap.set({"i", "s"}, "<C-E>", function()
+	-- Explicit jump keybinds for snippets
+	vim.keymap.set({'i', 's'}, '<C-j>', function() ls.jump(1) end, {silent = true}),
+	vim.keymap.set({'i', 's'}, '<C-k>', function() ls.jump(-1) end, {silent = true}),
+	vim.keymap.set({"i"}, "<C-l>", function() ls.expand() end, {silent = true}),
+	vim.keymap.set({"i", "s"}, "<C-e>", function()
 		if ls.choice_active() then
 			ls.change_choice(1)
 		end
